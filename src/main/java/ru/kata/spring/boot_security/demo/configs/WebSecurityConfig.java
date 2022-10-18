@@ -34,9 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .and()
-                .exceptionHandling().accessDeniedPage("/forbidden");
+                .logoutSuccessUrl("/");
     }
 
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
