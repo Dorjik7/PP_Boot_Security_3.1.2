@@ -1,5 +1,6 @@
 package ru.kata.spring.boot_security.demo.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.kata.spring.boot_security.demo.model.User;
 
@@ -10,7 +11,7 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
     private final EntityManager entityManager;
-
+    @Autowired
     public UserDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -59,3 +60,5 @@ public class UserDaoImpl implements UserDao {
         return entityManager.createQuery("select u from User u join fetch u.roles where u.username =:username").setParameter("username", username).getResultList();
     }
 }
+
+
